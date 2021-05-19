@@ -15,15 +15,16 @@ public class Evento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
+	
+	@OneToMany
+	private List<Convidado> convidados;
+	
 	private String nome;
 	private String local;
 	private String data;
 	private String horario;
-	
-	@OneToMany
-	private List<Convidado> convidados; 
 
 	public long getCodigo() {
 		return codigo;
