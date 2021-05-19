@@ -20,12 +20,12 @@ public class Evento implements Serializable {
 	private String data;
 	private String horario;
 
-	public long getId() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setId(long id) {
-		this.codigo = id;
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
