@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.agenda.app.models.Convidado;
 import com.agenda.app.models.Evento;
+import com.agenda.app.repositories.ConvidadoRepository;
 import com.agenda.app.repositories.EventoRepository;
 
 @Controller
@@ -15,6 +17,9 @@ public class EventoController {
 
 	@Autowired
 	private EventoRepository eventoRepository;
+
+	@Autowired
+	private ConvidadoRepository convidadoRepository;
 
 	@GetMapping("/cadastrarEvento")
 	public String form() {
@@ -41,5 +46,13 @@ public class EventoController {
 		ModelAndView mv = new ModelAndView("evento/detalhesEvento");
 		mv.addObject("evento", evento);
 		return mv;
+	}
+
+	@PostMapping("/detalhesEvento/{codigo}")
+	public String cadastraConvidado(@PathVariable long codigo, Convidado convidado) {
+		Evento evento = eventoRepository.findByCodigo(codigo);
+		convidado.setEvento(evento);
+		convidadoRepository.save(convidado);
+		return "redirect:/detalhesEvento/{codigo}";
 	}
 }
