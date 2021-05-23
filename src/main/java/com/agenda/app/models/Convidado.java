@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Convidado implements Serializable {
@@ -14,13 +15,16 @@ public class Convidado implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long codigo;
 
 	@ManyToOne
 	private Evento evento;
 
-	private String rg;
+	@NotEmpty
+	private String cpf;
+	
+	@NotEmpty
 	private String nome;
 
 	public long getCodigo() {
@@ -39,12 +43,12 @@ public class Convidado implements Serializable {
 		this.evento = evento;
 	}
 
-	public String getRg() {
-		return rg;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getNome() {
