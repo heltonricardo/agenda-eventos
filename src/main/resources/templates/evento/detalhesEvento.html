@@ -42,6 +42,8 @@
 			</p>
 		</div>
 
+		<th:block th:include="mensagemValidacao"></th:block>
+
 		<form method="post">
 			Nome:
 			<input type="text" value="" name="nome" />
@@ -50,6 +52,18 @@
 			<button type="submit" class="waves-effect waves-light btn">
 				Adicionar</button>
 		</form>
+	</div>
+
+	<h5>Lista de Convidados</h5>
+	<div class="container" th:each="convidado: ${convidados}">
+		<div class="row">
+			<div class="input-field col s6">
+				<span th:text="${convidado.nome}"></span>
+			</div>
+			<div class="input-field col s6">
+				<span th:text="${convidado.cpf}"></span>
+			</div>
+		</div>
 	</div>
 
 

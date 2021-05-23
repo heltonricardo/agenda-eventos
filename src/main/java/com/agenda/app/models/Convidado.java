@@ -23,7 +23,7 @@ public class Convidado implements Serializable {
 
 	@NotEmpty
 	private String cpf;
-	
+
 	@NotEmpty
 	private String nome;
 
