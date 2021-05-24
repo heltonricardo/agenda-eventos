@@ -1,0 +1,31 @@
+h5 {
+	padding-bottom: 20px;
+}
+.detalhesEvento {
+	box-shadow: 0 0 5px gray;
+	padding-top: 20px;
+	padding-left: 20px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.formConvidado {
+	box-shadow: 0 0 5px gray;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 60px;
+}
+
+.tabelaConvidados {
+	width: 50%;
+}
+
+.formEvento {
+	box-shadow: 0 0 5px gray;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
