@@ -36,6 +36,7 @@
 				<th>Local</th>
 				<th>Data</th>
 				<th>Horário</th>
+				<th>Deletar</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -54,6 +55,11 @@
 				</td>
 				<td>
 					<span th:text="${evento.horario}"></span>
+				</td>
+				<td>
+					<a th:href="@{/deletarEvento/{codigo}(codigo = ${evento.codigo})}">
+						<i class="material-icons left">delete</i>
+					</a>
 				</td>
 			</tr>
 		</tbody>

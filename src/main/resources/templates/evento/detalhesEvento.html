@@ -71,6 +71,7 @@
 			<tr>
 				<th>Nome do convidado</th>
 				<th>CPF</th>
+				<th>Deletar</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -80,6 +81,11 @@
 				</td>
 				<td>
 					<span th:text="${convidado.cpf}"></span>
+				</td>
+				<td>
+					<a th:href="@{/deletarConvidado/{codigo}(codigo = ${convidado.codigo})}">
+						<i class="material-icons left">delete</i>
+					</a>
 				</td>
 			</tr>
 		</tbody>

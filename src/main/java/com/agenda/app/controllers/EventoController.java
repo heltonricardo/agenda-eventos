@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -59,6 +60,12 @@ public class EventoController {
 		mv.addObject("convidados", convidados);
 		return mv;
 	}
+	
+	@RequestMapping("/deletarEvento/{codigo}")
+	public String deletarEvento(@PathVariable long codigo) {
+		eventoRepository.deleteById(codigo);
+		return "redirect:/eventos";
+	}
 
 	@PostMapping("/detalhesEvento/{codigo}")
 	public String detalhesEventoPost(@PathVariable long codigo,
@@ -75,5 +82,13 @@ public class EventoController {
 		attributes.addFlashAttribute("mensagem",
 				"Convidado adicionado com sucesso!");
 		return "redirect:/detalhesEvento/{codigo}";
+	}
+	
+	@RequestMapping("/deletarConvidado/{codigo}")
+	public String deletarConvidado(@PathVariable long codigo) {
+		Convidado convidado = convidadoRepository.findById(codigo).get();
+		long idEvento = convidado.getEvento().getCodigo();
+		convidadoRepository.deleteById(codigo);
+		return "redirect:/detalhesEvento/" + idEvento;
 	}
 }
